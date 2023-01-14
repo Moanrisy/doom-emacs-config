@@ -140,7 +140,7 @@
 ;; accept. For example:
 ;;
 
-(setq doom-font "Fira Code-17")
+(setq doom-font "Fira Code-15")
 ;; (setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'semi-light)
      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16))
 ;;
@@ -153,7 +153,8 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
  ;; (setq doom-theme 'doom-monokai-pro)
-(setq doom-theme 'doom-flatwhite)
+(setq doom-theme 'doom-molokai)
+;;(setq doom-theme 'doom-flatwhite)
 ;; (setq doom-theme 'doom-city-lights)
 ;; (setq doom-theme 'doom-one)
 ;;(setq doom-theme 'doom-gruvbox-light)
