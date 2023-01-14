@@ -3,6 +3,43 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+(defun start-go-term ()
+  (interactive)
+  (shell "go-term")
+  (switch-to-buffer (other-buffer (current-buffer) t))
+  )
+
+;; run go file
+(defun run-go-file ()
+  (interactive)
+  (setq cur-file-name (buffer-name (window-buffer (minibuffer-selected-window))))
+  (switch-to-buffer "go-term")
+  (comint-clear-buffer)
+  (insert "go run ")
+  (insert (format "%s" cur-file-name))
+  (comint-send-input)
+  ;; (switch-to-buffer (other-buffer (current-buffer) t))
+)
+
+;; run go modules
+(defun run-go-modules ()
+  (interactive)
+  (setq cur-file-name (buffer-name (window-buffer (minibuffer-selected-window))))
+  (switch-to-buffer "go-term")
+  (comint-clear-buffer)
+  (insert "go run .")
+  ;; (insert (format "%s" cur-file-name))
+  (comint-send-input)
+  ;; (switch-to-buffer (other-buffer (current-buffer) t))
+)
+
+;; SPC keybinds
+(map! :leader
+     (:prefix-map ("r" . "run")
+        :desc "run go file"                                                      "g" #'run-go-file
+        :desc "run go modules"                                                   "m" #'run-go-modules
+        ))
+
 ;; remap ctrl + shift + e to select treemacs window
 ;; (define-key global-map (kbd "C-E") 'treemacs-select-window)
 (define-key global-map (kbd "C-S-E") 'treemacs-select-window)
@@ -140,7 +177,7 @@
 ;; accept. For example:
 ;;
 
-(setq doom-font "Fira Code-17")
+(setq doom-font "Fira Code-15")
 ;; (setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'semi-light)
      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16))
 ;;
@@ -153,7 +190,8 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
  ;; (setq doom-theme 'doom-monokai-pro)
-(setq doom-theme 'doom-flatwhite)
+(setq doom-theme 'doom-molokai)
+;;(setq doom-theme 'doom-flatwhite)
 ;; (setq doom-theme 'doom-city-lights)
 ;; (setq doom-theme 'doom-one)
 ;;(setq doom-theme 'doom-gruvbox-light)
