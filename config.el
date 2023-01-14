@@ -183,19 +183,20 @@
 "Write clock in title into a file"
 (message (symbol-value 'org-clock-heading))
 (message "clocked time %d." (org-clock-get-clocked-time))
-(append-to-file (number-to-string (org-clock-get-clocked-time)) nil "~/clock-in-title")
-(append-to-file "/" nil "~/clock-in-title")
+(append-to-file (number-to-string (org-clock-get-clocked-time)) nil "/tmp/clock-in-title")
+(append-to-file "/" nil "/tmp/clock-in-title")
 
 (when (symbol-value 'org-clock-effort)
-(append-to-file (symbol-value 'org-clock-effort) nil "~/clock-in-title"))
+(append-to-file (symbol-value 'org-clock-effort) nil "/tmp/clock-in-title"))
 
-(append-to-file " " nil "~/clock-in-title")
-(append-to-file (symbol-value 'org-clock-heading) nil "~/clock-in-title")
-(append-to-file "\n" nil "~/clock-in-title")
+(append-to-file " " nil "/tmp/clock-in-title")
+(append-to-file (symbol-value 'org-clock-heading) nil "/tmp/clock-in-title")
+(append-to-file "\n" nil "/tmp/clock-in-title")
 )
 
 (add-hook 'org-clock-in-hook 'write-clock-in-title-hook)
 (run-at-time nil 60 #'write-clock-in-title-hook)
+;; (run-at-time nil 5 #'write-clock-in-title-hook)
 
 ;; BUG clock-in-fyne can't read after file cleaned
 ;; TODO update clock-in-fyne app
