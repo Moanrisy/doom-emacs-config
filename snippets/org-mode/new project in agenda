@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: new project in agenda
+# key: npia
+# --
+** $1 [/]
+:PROPERTIES:
+:CATEGORY: Learning
+:VISIBILITY: hide
+:COOKIE_DATA: recursive todo
+:END:
+*** Information :info:
+:PROPERTIES:
+:VISIBILITY: hide
+:END:
+*** Notes :notes:
+:PROPERTIES:
+:VISIBILITY: hide
+:END:
+*** Tasks :tasks:
+:PROPERTIES:
+:VISIBILITY: content
+:END:
