@@ -177,7 +177,7 @@
 ;; accept. For example:
 ;;
 
-(setq doom-font "Fira Code-15")
+(setq doom-font "Fira Code-13")
 ;; (setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'semi-light)
      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16))
 ;;
