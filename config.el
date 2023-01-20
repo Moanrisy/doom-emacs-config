@@ -42,14 +42,15 @@
 
 ;; remap ctrl + shift + e to select treemacs window
 ;; (define-key global-map (kbd "C-E") 'treemacs-select-window)
-(define-key global-map (kbd "C-S-E") 'treemacs-select-window)
+;; (define-key global-map (kbd "C-S-E") 'treemacs-select-window)
+(define-key global-map (kbd "C-S-E") 'neotree-show)
 
 ;; remap ctrl + / to comment line
 (define-key global-map (kbd "C-/") 'comment-line)
 
 ;; real auto save mode
  (add-hook 'prog-mode-hook 'real-auto-save-mode)
- (setq real-auto-save-interval 2) ;; in seconds
+ (setq real-auto-save-interval 1) ;; in seconds
 
 ;; Switch other buffer
 (map! :leader "ESC" #'evil-switch-to-windows-last-buffer)
