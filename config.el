@@ -21,6 +21,18 @@
   ;; (switch-to-buffer (other-buffer (current-buffer) t))
 )
 
+;; run go test file
+(defun run-go-test-file ()
+  (interactive)
+  (setq cur-file-name (buffer-name (window-buffer (minibuffer-selected-window))))
+  (switch-to-buffer "go-term")
+  (comint-clear-buffer)
+  (insert "go test ")
+  (insert (format "%s" cur-file-name))
+  (comint-send-input)
+  ;; (switch-to-buffer (other-buffer (current-buffer) t))
+)
+
 ;; run go modules
 (defun run-go-modules ()
   (interactive)
@@ -37,6 +49,7 @@
 (map! :leader
      (:prefix-map ("r" . "run")
         :desc "run go file"                                                      "g" #'run-go-file
+        :desc "run go test"                                                      "t" #'run-go-test-file
         :desc "run go modules"                                                   "m" #'run-go-modules
         ))
 
