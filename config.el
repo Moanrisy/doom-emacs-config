@@ -3,6 +3,9 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; org-reveal ;; not working
+(setq org-reveal-root "file:///home/mars/Applications/reveal.js")
+
 (defun start-go-term ()
   (interactive)
   (shell "go-term")
@@ -72,7 +75,7 @@
 ;; https://github.com/rougier/emacs-gtd
 (setq org-directory "~/Dropbox/notes")
 (after! org
-  (setq org-agenda-files (list "inbox.org" "projects.org" "agenda.org" "notes.org"))
+  (setq org-agenda-files (list "inbox.org" "projects.org" "agenda.org" "notes.org" "gtd-mobile.org"))
   ;; (setq org-agenda-files (list "projects.org"))
   ;; (setq org-agenda-files (list "notes.org"))
   )
@@ -191,7 +194,7 @@
 ;; accept. For example:
 ;;
 
-(setq doom-font "Fira Code-13")
+(setq doom-font "Fira Code-11")
 ;; (setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'semi-light)
      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16))
 ;;
