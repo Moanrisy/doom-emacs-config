@@ -166,6 +166,9 @@
 
 (setq org-log-done 'time)
 
+;; open this file on startup so org-capture work properly
+(find-file "/home/mars/Dropbox/notes/notes.org")
+(find-file "/home/mars/Dropbox/notes/inbox.org")
 ;;;; run custom org-agenda at startup
 (org-agenda nil "g")
 
