@@ -3,6 +3,9 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; org-reveal ;; not working
+(setq org-reveal-root "file:///home/mars/Applications/reveal.js")
+
 (defun start-go-term ()
   (interactive)
   (shell "go-term")
@@ -16,6 +19,18 @@
   (switch-to-buffer "go-term")
   (comint-clear-buffer)
   (insert "go run ")
+  (insert (format "%s" cur-file-name))
+  (comint-send-input)
+  ;; (switch-to-buffer (other-buffer (current-buffer) t))
+)
+
+;; run go test file
+(defun run-go-test-file ()
+  (interactive)
+  (setq cur-file-name (buffer-name (window-buffer (minibuffer-selected-window))))
+  (switch-to-buffer "go-term")
+  (comint-clear-buffer)
+  (insert "go test ")
   (insert (format "%s" cur-file-name))
   (comint-send-input)
   ;; (switch-to-buffer (other-buffer (current-buffer) t))
@@ -37,19 +52,21 @@
 (map! :leader
      (:prefix-map ("r" . "run")
         :desc "run go file"                                                      "g" #'run-go-file
+        :desc "run go test"                                                      "t" #'run-go-test-file
         :desc "run go modules"                                                   "m" #'run-go-modules
         ))
 
 ;; remap ctrl + shift + e to select treemacs window
 ;; (define-key global-map (kbd "C-E") 'treemacs-select-window)
-(define-key global-map (kbd "C-S-E") 'treemacs-select-window)
+;; (define-key global-map (kbd "C-S-E") 'treemacs-select-window)
+(define-key global-map (kbd "C-S-E") 'neotree-show)
 
 ;; remap ctrl + / to comment line
 (define-key global-map (kbd "C-/") 'comment-line)
 
 ;; real auto save mode
  (add-hook 'prog-mode-hook 'real-auto-save-mode)
- (setq real-auto-save-interval 2) ;; in seconds
+ (setq real-auto-save-interval 1) ;; in seconds
 
 ;; Switch other buffer
 (map! :leader "ESC" #'evil-switch-to-windows-last-buffer)
@@ -58,7 +75,7 @@
 ;; https://github.com/rougier/emacs-gtd
 (setq org-directory "~/Dropbox/notes")
 (after! org
-  (setq org-agenda-files (list "inbox.org" "projects.org" "agenda.org" "notes.org"))
+  (setq org-agenda-files (list "inbox.org" "projects.org" "agenda.org" "notes.org" "gtd-mobile.org"))
   ;; (setq org-agenda-files (list "projects.org"))
   ;; (setq org-agenda-files (list "notes.org"))
   )
@@ -177,7 +194,7 @@
 ;; accept. For example:
 ;;
 
-(setq doom-font "Fira Code-13")
+(setq doom-font "Fira Code-11")
 ;; (setq doom-font (font-spec :family "Fira Code" :size 15 :weight 'semi-light)
      ;; doom-variable-pitch-font (font-spec :family "Fira Sans" :size 16))
 ;;

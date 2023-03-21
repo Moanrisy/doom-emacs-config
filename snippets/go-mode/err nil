@@ -1,0 +1,6 @@
+# key: en
+# name: err nil
+# --
+if err != nil {
+	return err
+}

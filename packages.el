@@ -26,7 +26,14 @@
 (package! emacs-presentation-mode
   :recipe (:host github :repo "zonuexe/emacs-presentation-mode"))
 
+(package! emacs-presentation-mode
+  :recipe (:host github :repo "yjwen/org-reveal"))
 
+(package! go-eldoc
+  :recipe (:host github :repo "emacsorphanage/go-eldoc"))
+
+(require 'go-eldoc) ;; Don't need to require, if you install by package.el
+(add-hook 'go-mode-hook 'go-eldoc-setup)
 
 ;; If the package you are trying to install does not contain a PACKAGENAME.el
 ;; file, or is located in a subdirectory of the repo, you'll need to specify
