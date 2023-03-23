@@ -126,7 +126,7 @@
 ;; TODO
 (after! org
   (setq org-todo-keywords
-      '((sequence "TODO(t)" "DAILY(d)" "NEXT(n)" "HOLD(h)" "BUG(b)" "|" "DONE(d)" "KILL(k)")))
+      '((sequence "TODO(t)" "DAILY(y)" "NEXT(n)" "HOLD(h)" "BUG(b)" "|" "DONE(d)" "KILL(k)")))
   )
 
 (defun log-todo-next-creation-date (&rest ignore)
@@ -154,6 +154,7 @@
                 ((org-agenda-skip-function
                   '(org-agenda-skip-entry-if 'deadline))
                  (org-agenda-prefix-format "  %i %-12:c [%e] ")
+                 (org-agenda-todo-ignore-scheduled 'future)
                  (org-agenda-overriding-header "\nDaily habits\n")))
           (todo "NEXT"
                 ((org-agenda-skip-function
