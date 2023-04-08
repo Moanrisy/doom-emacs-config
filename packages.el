@@ -14,6 +14,10 @@
 ;; https://github.com/radian-software/straight.el#the-recipe-format
 ;(package! another-package
 ;  :recipe (:host github :repo "username/repo"))
+
+(package! org-alert
+  :recipe (:host github :repo "spegoraro/org-alert"))
+
 (package! easy-hugo
   :recipe (:host github :repo "masasam/emacs-easy-hugo"))
 

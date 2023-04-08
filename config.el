@@ -3,6 +3,15 @@
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
 
+;; org-alert
+(use-package! org-alert)
+(setq alert-default-style 'libnotify)
+(setq org-alert-interval 10
+    org-alert-notify-cutoff 5
+    org-alert-notify-after-event-cutoff 1440)
+(eval-after-load "org-alert"
+  (org-alert-enable))
+
 ;; org-reveal ;; not working
 (setq org-reveal-root "file:///home/mars/Applications/reveal.js")
 
