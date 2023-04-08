@@ -84,7 +84,7 @@
 ;; https://github.com/rougier/emacs-gtd
 (setq org-directory "~/Dropbox/notes")
 (after! org
-  (setq org-agenda-files (list "inbox.org" "projects.org" "agenda.org" "notes.org" "gtd-mobile.org"))
+  (setq org-agenda-files (list "course.org" "inbox.org" "projects.org" "agenda.org" "notes.org" "gtd-mobile.org"))
   ;; (setq org-agenda-files (list "projects.org"))
   ;; (setq org-agenda-files (list "notes.org"))
   )
@@ -177,6 +177,9 @@
                    (org-agenda-skip-function
                     '(org-agenda-skip-entry-if 'notregexp "\\* NEXT"))
                    (org-agenda-overriding-header "\nDeadlines")))
+          (tags-todo "course"
+                     ((org-agenda-prefix-format "  %?-12t% s")
+                      (org-agenda-overriding-header "\nCourse\n")))
           (tags-todo "inbox"
                      ((org-agenda-prefix-format "  %?-12t% s")
                       (org-agenda-overriding-header "\nInbox\n")))
