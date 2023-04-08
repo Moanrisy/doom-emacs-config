@@ -9,6 +9,8 @@
 (setq org-alert-interval 10
     org-alert-notify-cutoff 5
     org-alert-notify-after-event-cutoff 1440)
+(setq org-alert-time-match-string
+      "\\(?:SCHEDULED\\|DEADLINE\\):.*?<.*?\\([0-9]\\{2\\}:[0-9]\\{2\\}\\).*>")
 (eval-after-load "org-alert"
   (org-alert-enable))
 
